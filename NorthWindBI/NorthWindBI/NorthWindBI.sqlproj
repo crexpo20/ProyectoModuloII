@@ -68,5 +68,13 @@
     <Build Include="NorthWindOLTP\Schema\Tables\CustomerDemographics.sql" />
     <Build Include="NorthWindOLTP\Schema\Tables\Customers.sql" />
     <Build Include="NorthWindOLTP\Schema\Tables\Employees.sql" />
+    <Build Include="NorthWindOLTP\Schema\Tables\EmployeeTerritories.sql" />
+    <Build Include="NorthWindOLTP\Schema\Tables\Territories.sql" />
+    <Build Include="NorthWindOLTP\Schema\Tables\Region.sql" />
+    <Build Include="NorthWindOLTP\Schema\Tables\Orders.sql" />
+    <Build Include="NorthWindOLTP\Schema\Tables\Shippers.sql" />
+    <Build Include="NorthWindOLTP\Schema\Tables\OrderDetails.sql" />
+    <Build Include="NorthWindOLTP\Schema\Tables\Products.sql" />
+    <Build Include="NorthWindOLTP\Schema\Tables\Suppliers.sql" />
   </ItemGroup>
 </Project>
