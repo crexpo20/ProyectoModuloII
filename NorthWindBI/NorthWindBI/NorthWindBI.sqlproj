@@ -67,5 +67,6 @@
     <Build Include="NorthWindOLTP\Schema\Tables\CustomerCustomerDemo.sql" />
     <Build Include="NorthWindOLTP\Schema\Tables\CustomerDemographics.sql" />
     <Build Include="NorthWindOLTP\Schema\Tables\Customers.sql" />
+    <Build Include="NorthWindOLTP\Schema\Tables\Employees.sql" />
   </ItemGroup>
 </Project>
