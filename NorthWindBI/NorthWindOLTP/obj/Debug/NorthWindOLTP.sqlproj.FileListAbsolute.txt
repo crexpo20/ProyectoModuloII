@@ -1,0 +1,6 @@
+C:\Users\Ronaldo\source\repos\ProyectoModuloII\NorthWindBI\NorthWindOLTP\bin\Debug\NorthWindOLTP.dacpac
+C:\Users\Ronaldo\source\repos\ProyectoModuloII\NorthWindBI\NorthWindOLTP\bin\Debug\NorthWindOLTP.dll
+C:\Users\Ronaldo\source\repos\ProyectoModuloII\NorthWindBI\NorthWindOLTP\bin\Debug\NorthWindOLTP.pdb
+C:\Users\Ronaldo\source\repos\ProyectoModuloII\NorthWindBI\NorthWindOLTP\obj\Debug\NorthWindOLTP.sqlproj.AssemblyReference.cache
+C:\Users\Ronaldo\source\repos\ProyectoModuloII\NorthWindBI\NorthWindOLTP\obj\Debug\NorthWindOLTP.dll
+C:\Users\Ronaldo\source\repos\ProyectoModuloII\NorthWindBI\NorthWindOLTP\obj\Debug\NorthWindOLTP.pdb

@@ -56,25 +56,10 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-    <Folder Include="NorthWindOLTP" />
-    <Folder Include="NorthWindETL" />
-    <Folder Include="NorthWindOLTP\Schema" />
-    <Folder Include="NorthWindOLTP\Scripts" />
-    <Folder Include="NorthWindOLTP\Schema\Tables" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="NorthWindOLTP\Schema\Tables\Categories.sql" />
-    <Build Include="NorthWindOLTP\Schema\Tables\CustomerCustomerDemo.sql" />
-    <Build Include="NorthWindOLTP\Schema\Tables\CustomerDemographics.sql" />
-    <Build Include="NorthWindOLTP\Schema\Tables\Customers.sql" />
-    <Build Include="NorthWindOLTP\Schema\Tables\Employees.sql" />
-    <Build Include="NorthWindOLTP\Schema\Tables\EmployeeTerritories.sql" />
-    <Build Include="NorthWindOLTP\Schema\Tables\Territories.sql" />
-    <Build Include="NorthWindOLTP\Schema\Tables\Region.sql" />
-    <Build Include="NorthWindOLTP\Schema\Tables\Orders.sql" />
-    <Build Include="NorthWindOLTP\Schema\Tables\Shippers.sql" />
-    <Build Include="NorthWindOLTP\Schema\Tables\OrderDetails.sql" />
-    <Build Include="NorthWindOLTP\Schema\Tables\Products.sql" />
-    <Build Include="NorthWindOLTP\Schema\Tables\Suppliers.sql" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
 </Project>
