@@ -60,5 +60,9 @@
     <Folder Include="NorthWindETL" />
     <Folder Include="NorthWindOLTP\Schema" />
     <Folder Include="NorthWindOLTP\Scripts" />
+    <Folder Include="NorthWindOLTP\Schema\Tables" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="NorthWindOLTP\Schema\Tables\Categories.sql" />
   </ItemGroup>
 </Project>
