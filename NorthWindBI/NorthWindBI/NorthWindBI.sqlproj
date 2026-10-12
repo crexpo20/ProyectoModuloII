@@ -64,16 +64,42 @@
     <Folder Include="NorthWindOLTP\Schema\stored_procedures" />
     <Folder Include="NorthWindDW" />
     <Folder Include="NorthWindDW\Schema" />
+    <Folder Include="NorthWindDW\Schema\etl" />
+    <Folder Include="NorthWindDW\Schema\Script" />
+    <Folder Include="NorthWindDW\Schema\Script\PostDeployment" />
+    <Folder Include="NorthWindDW\Schema\Security" />
+    <Folder Include="NorthWindDW\Schema\stg" />
+    <Folder Include="NorthWindDW\Schema\tables" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="NorthWindOLTP\Schema\Tables\create_tables.sql" />
     <Build Include="NorthWindOLTP\Schema\constraints\create_constraints.sql" />
+    <Build Include="NorthWindDW\Schema\etl\LoadBatch.sql" />
+    <None Include="NorthWindDW\Schema\Script\PostDeployment\01_Seed_UnknownMembers.sql" />
+    <None Include="NorthWindDW\Schema\Script\PostDeployment\02_Seed_DimDate.sql" />
+    <Build Include="NorthWindDW\Schema\Security\dw.sql" />
+    <Build Include="NorthWindDW\Schema\Security\etl.sql" />
+    <Build Include="NorthWindDW\Schema\Security\stg.sql" />
+    <Build Include="NorthWindDW\Schema\stg\Categories.sql" />
+    <Build Include="NorthWindDW\Schema\stg\Customers.sql" />
+    <Build Include="NorthWindDW\Schema\stg\Employees.sql" />
+    <Build Include="NorthWindDW\Schema\stg\OrderDetails.sql" />
+    <Build Include="NorthWindDW\Schema\stg\Orders.sql" />
+    <Build Include="NorthWindDW\Schema\stg\Products.sql" />
+    <Build Include="NorthWindDW\Schema\stg\Shippers.sql" />
+    <Build Include="NorthWindDW\Schema\stg\Suppliers.sql" />
+    <Build Include="NorthWindDW\Schema\tables\DimCustomer.sql" />
+    <Build Include="NorthWindDW\Schema\tables\DimDate.sql" />
+    <Build Include="NorthWindDW\Schema\tables\DimEmployee.sql" />
+    <Build Include="NorthWindDW\Schema\tables\DimProduct.sql" />
+    <Build Include="NorthWindDW\Schema\tables\DimShipGeography.sql" />
+    <Build Include="NorthWindDW\Schema\tables\DimShipper.sql" />
+    <Build Include="NorthWindDW\Schema\tables\FactSales.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="NorthWindOLTP\Schema\stored_procedures\create_stored_procedures.sql" />
-    <None Include="NorthWindDW\Schema\create_database_dw.sql" />
-    <None Include="NorthWindDW\Schema\create_dimensions.sql" />
-    <None Include="NorthWindDW\Schema\create_fact_table.sql" />
-    <None Include="NorthWindDW\Schema\create_staging.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="NorthWindDW\Schema\Script\Script.PostDeployment.sql" />
   </ItemGroup>
 </Project>

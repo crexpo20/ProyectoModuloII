@@ -1,12 +1,3 @@
-﻿/* ==========================================================
-   03_create_fact_table.sql
-   FactSales
-   Granularidad: UNA FILA POR LÍNEA DE PEDIDO (OrderID + ProductID)
-   Requiere haber ejecutado 02_create_dimensions.sql
-   ========================================================== */
-USE [NorthwindDW];
-GO
-
 CREATE TABLE dw.FactSales(
     SalesKey          bigint IDENTITY(1,1) NOT NULL,
 
@@ -48,19 +39,17 @@ CREATE TABLE dw.FactSales(
     CONSTRAINT FK_FactSales_Shipper      FOREIGN KEY (ShipperKey)       REFERENCES dw.DimShipper(ShipperSK),
     CONSTRAINT FK_FactSales_ShipGeo      FOREIGN KEY (ShipGeographyKey) REFERENCES dw.DimShipGeography(ShipGeographySK)
 );
-GO
 
--- Índices de apoyo para joins y filtros por dimensión
 CREATE NONCLUSTERED INDEX IX_FactSales_OrderDate   ON dw.FactSales (OrderDateKey)    INCLUDE (NetAmount, Quantity);
-CREATE NONCLUSTERED INDEX IX_FactSales_Customer    ON dw.FactSales (CustomerKey)     INCLUDE (NetAmount);
-CREATE NONCLUSTERED INDEX IX_FactSales_Product     ON dw.FactSales (ProductKey)      INCLUDE (NetAmount, Quantity);
-CREATE NONCLUSTERED INDEX IX_FactSales_Employee    ON dw.FactSales (EmployeeKey)     INCLUDE (NetAmount);
-CREATE NONCLUSTERED INDEX IX_FactSales_Shipper     ON dw.FactSales (ShipperKey)      INCLUDE (FreightAllocated);
-CREATE NONCLUSTERED INDEX IX_FactSales_ShipDate    ON dw.FactSales (ShippedDateKey);
-CREATE NONCLUSTERED INDEX IX_FactSales_ShipGeo     ON dw.FactSales (ShipGeographyKey);
-GO
 
-/* Alternativa para volúmenes grandes (SQL Server 2016+):
-   - Declarar la PK como NONCLUSTERED y crear:
-       CREATE CLUSTERED COLUMNSTORE INDEX CCI_FactSales ON dw.FactSales;
-   - Eliminar los índices IX_FactSales_* de arriba. */
+CREATE NONCLUSTERED INDEX IX_FactSales_Customer    ON dw.FactSales (CustomerKey)     INCLUDE (NetAmount);
+
+CREATE NONCLUSTERED INDEX IX_FactSales_Product     ON dw.FactSales (ProductKey)      INCLUDE (NetAmount, Quantity);
+
+CREATE NONCLUSTERED INDEX IX_FactSales_Employee    ON dw.FactSales (EmployeeKey)     INCLUDE (NetAmount);
+
+CREATE NONCLUSTERED INDEX IX_FactSales_Shipper     ON dw.FactSales (ShipperKey)      INCLUDE (FreightAllocated);
+
+CREATE NONCLUSTERED INDEX IX_FactSales_ShipDate    ON dw.FactSales (ShippedDateKey);
+
+CREATE NONCLUSTERED INDEX IX_FactSales_ShipGeo     ON dw.FactSales (ShipGeographyKey);

@@ -4,3 +4,7 @@ C:\Users\Mauricio\source\repos\ProyectoModuloII\NorthWindBI\NorthWindBI\bin\Debu
 C:\Users\Mauricio\source\repos\ProyectoModuloII\NorthWindBI\NorthWindBI\obj\Debug\NorthWindBI.sqlproj.AssemblyReference.cache
 C:\Users\Mauricio\source\repos\ProyectoModuloII\NorthWindBI\NorthWindBI\obj\Debug\NorthWindBI.dll
 C:\Users\Mauricio\source\repos\ProyectoModuloII\NorthWindBI\NorthWindBI\obj\Debug\NorthWindBI.pdb
+C:\Users\Mauricio\source\repos\ProyectoModuloII\NorthWindBI\NorthWindBI\obj\Debug\Model.xml
+C:\Users\Mauricio\source\repos\ProyectoModuloII\NorthWindBI\NorthWindBI\obj\Debug\refactor.xml
+C:\Users\Mauricio\source\repos\ProyectoModuloII\NorthWindBI\NorthWindBI\obj\Debug\postdeploy.sql
+C:\Users\Mauricio\source\repos\ProyectoModuloII\NorthWindBI\NorthWindBI\obj\Debug\predeploy.sql
