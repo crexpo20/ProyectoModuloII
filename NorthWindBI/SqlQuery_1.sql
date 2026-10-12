@@ -1,0 +1,10 @@
+﻿USE prueba;
+GO
+DROP TABLE IF EXISTS dw.FactSales;
+DROP TABLE IF EXISTS dw.DimShipGeography;
+DROP TABLE IF EXISTS dw.DimShipper;
+DROP TABLE IF EXISTS dw.DimEmployee;
+DROP TABLE IF EXISTS dw.DimProduct;
+DROP TABLE IF EXISTS dw.DimCustomer;
+DROP TABLE IF EXISTS dw.DimDate;
+GO

@@ -62,6 +62,8 @@
     <Folder Include="NorthWindOLTP\Schema\Tables" />
     <Folder Include="NorthWindOLTP\Schema\constraints" />
     <Folder Include="NorthWindOLTP\Schema\stored_procedures" />
+    <Folder Include="NorthWindDW" />
+    <Folder Include="NorthWindDW\Schema" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="NorthWindOLTP\Schema\Tables\create_tables.sql" />
@@ -69,5 +71,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="NorthWindOLTP\Schema\stored_procedures\create_stored_procedures.sql" />
+    <None Include="NorthWindDW\Schema\create_database_dw.sql" />
+    <None Include="NorthWindDW\Schema\create_dimensions.sql" />
+    <None Include="NorthWindDW\Schema\create_fact_table.sql" />
+    <None Include="NorthWindDW\Schema\create_staging.sql" />
   </ItemGroup>
 </Project>
