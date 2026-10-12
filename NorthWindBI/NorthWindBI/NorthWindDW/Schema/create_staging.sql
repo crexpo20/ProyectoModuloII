@@ -7,7 +7,7 @@
      el delta se detecta por RowHash en las dimensiones
    - Columnas de control: ETLBatchID, ExtractDateTime
    ========================================================== */
-USE [prueba];
+USE [NorthwindDW];
 GO
 
 /* ---------- Control de lotes ---------- */

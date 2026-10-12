@@ -8,7 +8,7 @@
      - SK = -1 : miembro "Desconocido" para evitar NULLs en la tabla de hechos
    Ejecutar UNA sola vez sobre una base vacía.
    ========================================================== */
-USE [prueba]
+USE [NorthwindDW]
 GO
 
 /* ==========================================================

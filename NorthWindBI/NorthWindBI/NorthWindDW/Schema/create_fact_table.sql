@@ -4,7 +4,7 @@
    Granularidad: UNA FILA POR LÍNEA DE PEDIDO (OrderID + ProductID)
    Requiere haber ejecutado 02_create_dimensions.sql
    ========================================================== */
-USE [prueba];
+USE [NorthwindDW];
 GO
 
 CREATE TABLE dw.FactSales(
