@@ -57,8 +57,17 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="NorthWindOLTP" />
-    <Folder Include="NorthWindETL" />
     <Folder Include="NorthWindOLTP\Schema" />
     <Folder Include="NorthWindOLTP\Scripts" />
+    <Folder Include="NorthWindOLTP\Schema\Tables" />
+    <Folder Include="NorthWindOLTP\Schema\constraints" />
+    <Folder Include="NorthWindOLTP\Schema\stored_procedures" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="NorthWindOLTP\Schema\Tables\create_tables.sql" />
+    <Build Include="NorthWindOLTP\Schema\constraints\create_constraints.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="NorthWindOLTP\Schema\stored_procedures\create_stored_procedures.sql" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,27 @@
+﻿** Aspectos destacados
+     Tablas que se volverán a crear con los datos migrados
+       Ninguno
+     Índices clúster que se van a quitar
+       Ninguno
+     Índices clúster que se van a crear
+       Ninguno
+     Posibles incidencias de datos
+       Ninguno
+
+** Acciones del usuario
+     Crear
+       [dbo].[Categories] (Tabla)
+       [dbo].[CustomerCustomerDemo] (Tabla)
+       [dbo].[CustomerDemographics] (Tabla)
+       [dbo].[Customers] (Tabla)
+       [dbo].[Employees] (Tabla)
+       [dbo].[EmployeeTerritories] (Tabla)
+       [dbo].[OrderDetails] (Tabla)
+       [dbo].[Orders] (Tabla)
+       [dbo].[Products] (Tabla)
+       [dbo].[Region] (Tabla)
+       [dbo].[Shippers] (Tabla)
+       [dbo].[Suppliers] (Tabla)
+       [dbo].[Territories] (Tabla)
+
+** Acciones de compatibilidad
