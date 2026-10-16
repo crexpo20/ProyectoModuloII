@@ -1,0 +1,26 @@
+GUIA DE SCRIPTS - NORTHWIND OLTP Y DATA WAREHOUSE
+
+IMPORTANTE
+- Estos scripts están preparados para la base origen llamada NorthWind y la base destino llamada NorthWindDW.
+- No ejecutarlos hasta restaurar el respaldo NorthWind.bak y publicar/crear las tablas del proyecto NorthWindDW.
+- No ejecutar scripts contra master, model, msdb ni tempdb.
+- El script 02 vuelve a cargar las dimensiones y elimina primero los datos de Fact_Ventas. El script 03 vuelve a cargar Fact_Ventas. Usarlos con cuidado si ya se tienen datos importantes en el DW.
+
+ORDEN
+1) Restaurar NorthWind.bak en SSMS con nombre de base NorthWind.
+2) Abrir en Visual Studio NorthWindBI.slnx.
+3) Publicar el proyecto NorthWindDW con nombre de base destino NorthWindDW (ver pasos de la guía conversacional).
+4) Abrir y ejecutar Scripts/01_Verificar_NorthWind.sql en SSMS.
+5) Ejecutar Scripts/02_Cargar_Dimensiones.sql.
+6) Ejecutar Scripts/03_Cargar_Fact_Ventas.sql.
+7) Ejecutar Scripts/04_Verificar_Resultados.sql.
+
+FLETE
+Orders.Freight es el flete original por pedido. Como Fact_Ventas tiene una fila por producto de cada pedido, el script 03 reparte el flete proporcionalmente al importe neto de cada línea: FreightPedido * ImporteNetoLinea / ImporteNetoTotalPedido. El último renglón del pedido absorbe el residuo de redondeo para que el total asignado del pedido coincida con el flete original.
+
+VENTA NETA
+ExtendedPrice = UnitPrice * Quantity * (1 - Discount). Discount es proporción: 0.10 equivale a 10%.
+
+LIMITACIONES A REVISAR
+- El proyecto original incluye columnas de territorio/region en Dim_Empleado aunque un empleado puede pertenecer a varios territorios; aquí se resume a un valor MAX por empleado para conservar una fila por empleado. Si el profesor pide analizar todos los territorios, habría que ampliar el diseño.
+- Revisa el nombre de la base origen en SSMS; si la restauraste con otro nombre, cambia NorthWind en los scripts.

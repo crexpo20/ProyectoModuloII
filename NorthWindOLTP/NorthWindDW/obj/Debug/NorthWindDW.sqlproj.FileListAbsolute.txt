@@ -1,6 +1,0 @@
-C:\Users\usuario\Documents\GitHub\ProyectoModuloII\NorthWindOLTP\NorthWindDW\bin\Debug\NorthWindDW.dacpac
-C:\Users\usuario\Documents\GitHub\ProyectoModuloII\NorthWindOLTP\NorthWindDW\bin\Debug\NorthWindDW.dll
-C:\Users\usuario\Documents\GitHub\ProyectoModuloII\NorthWindOLTP\NorthWindDW\bin\Debug\NorthWindDW.pdb
-C:\Users\usuario\Documents\GitHub\ProyectoModuloII\NorthWindOLTP\NorthWindDW\obj\Debug\NorthWindDW.sqlproj.AssemblyReference.cache
-C:\Users\usuario\Documents\GitHub\ProyectoModuloII\NorthWindOLTP\NorthWindDW\obj\Debug\NorthWindDW.dll
-C:\Users\usuario\Documents\GitHub\ProyectoModuloII\NorthWindOLTP\NorthWindDW\obj\Debug\NorthWindDW.pdb
