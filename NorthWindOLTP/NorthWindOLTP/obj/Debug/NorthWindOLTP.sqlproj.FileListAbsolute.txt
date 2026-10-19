@@ -1,0 +1,10 @@
+C:\Users\usuario\Documents\GitHub\ProyectoModuloII\NorthWindOLTP\NorthWindOLTP\bin\Debug\NorthWindOLTP.dacpac
+C:\Users\usuario\Documents\GitHub\ProyectoModuloII\NorthWindOLTP\NorthWindOLTP\obj\Debug\NorthWindOLTP.sqlproj.AssemblyReference.cache
+C:\Users\usuario\Documents\GitHub\ProyectoModuloII\NorthWindOLTP\NorthWindOLTP\obj\Debug\Model.xml
+C:\Users\usuario\Documents\GitHub\ProyectoModuloII\NorthWindOLTP\NorthWindOLTP\obj\Debug\refactor.xml
+C:\Users\usuario\Documents\GitHub\ProyectoModuloII\NorthWindOLTP\NorthWindOLTP\obj\Debug\postdeploy.sql
+C:\Users\usuario\Documents\GitHub\ProyectoModuloII\NorthWindOLTP\NorthWindOLTP\obj\Debug\predeploy.sql
+C:\Users\usuario\Documents\GitHub\ProyectoModuloII\NorthWindOLTP\NorthWindOLTP\obj\Debug\NorthWindOLTP.dll
+C:\Users\usuario\Documents\GitHub\ProyectoModuloII\NorthWindOLTP\NorthWindOLTP\obj\Debug\NorthWindOLTP.pdb
+C:\Users\usuario\Documents\GitHub\ProyectoModuloII\NorthWindOLTP\NorthWindOLTP\bin\Debug\NorthWindOLTP.dll
+C:\Users\usuario\Documents\GitHub\ProyectoModuloII\NorthWindOLTP\NorthWindOLTP\bin\Debug\NorthWindOLTP.pdb

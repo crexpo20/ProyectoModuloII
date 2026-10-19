@@ -12,7 +12,6 @@ GO
 
 /* 2. Muestra de registros de la tabla de hechos */
 SELECT TOP (25) 
-    OrderID, 
     OrderDateKey, 
     CustomerKey, 
     ProductKey,
