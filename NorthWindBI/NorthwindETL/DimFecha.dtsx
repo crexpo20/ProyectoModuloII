@@ -1,0 +1,84 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/23/2026 3:40:14 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-3ERUFNK"
+  DTS:CreatorName="DESKTOP-3ERUFNK\Ronaldo"
+  DTS:DTSID="{25DB4A1B-C03C-458D-A744-2F7361A3796A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="16394"
+  DTS:ObjectName="DimFecha"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{F4AA1C87-F7A4-4F5D-846A-DED4EA0A6C56}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CN_NorthWind0LTP]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{798417C9-D1D1-444B-A22F-594FFC0BF424}"
+      DTS:ObjectName="CN_NorthWind0LTP">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-3ERUFNK;Initial Catalog=NorthWind0LTP;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{798417C9-D1D1-444B-A22F-594FFC0BF424}DESKTOP-3ERUFNK.NorthWind0LTP;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CN_NorthWindDW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{70DA8497-9421-43E8-811C-0AB6BF3BB99A}"
+      DTS:ObjectName="CN_NorthWindDW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-3ERUFNK;Initial Catalog=NorthWindDW;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{70DA8497-9421-43E8-811C-0AB6BF3BB99A}DESKTOP-3ERUFNK.NorthWindDW;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Cargar DimFecha"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{1738CB63-1AB7-4FDC-B0D4-FAF8721C771F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Cargar DimFecha"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70DA8497-9421-43E8-811C-0AB6BF3BB99A}"
+          SQLTask:SqlStatementSource="&#xA;SET NOCOUNT ON;&#xA;&#xA;DECLARE @FechaInicio DATE;&#xA;DECLARE @FechaFin DATE;&#xA;&#xA;SELECT&#xA;    @FechaInicio = MIN(Fecha),&#xA;    @FechaFin = MAX(Fecha)&#xA;FROM&#xA;(&#xA;    SELECT CAST(OrderDate AS DATE) AS Fecha&#xA;    FROM NorthWindF.dbo.Orders&#xA;    WHERE OrderDate IS NOT NULL&#xA;&#xA;    UNION ALL&#xA;&#xA;    SELECT CAST(RequiredDate AS DATE)&#xA;    FROM NorthWindF.dbo.Orders&#xA;    WHERE RequiredDate IS NOT NULL&#xA;&#xA;    UNION ALL&#xA;&#xA;    SELECT CAST(ShippedDate AS DATE)&#xA;    FROM NorthWindF.dbo.Orders&#xA;    WHERE ShippedDate IS NOT NULL&#xA;) AS FechasOrigen;&#xA;&#xA;IF @FechaInicio IS NULL&#xA;BEGIN&#xA;    THROW 50001, 'No existen fechas de pedidos en NorthWindF.', 1;&#xA;END;&#xA;&#xA;;WITH Calendario AS&#xA;(&#xA;    SELECT @FechaInicio AS Fecha&#xA;&#xA;    UNION ALL&#xA;&#xA;    SELECT DATEADD(DAY, 1, Fecha)&#xA;    FROM Calendario&#xA;    WHERE Fecha &lt; @FechaFin&#xA;)&#xA;INSERT INTO dbo.DimFecha&#xA;(&#xA;    FechaKey,&#xA;    Fecha,&#xA;    Dia,&#xA;    Mes,&#xA;    NombreMes,&#xA;    Trimestre,&#xA;    Anio,&#xA;    DiaSemana,&#xA;    NombreDia,&#xA;    EsFinDeSemana&#xA;)&#xA;SELECT&#xA;    CONVERT(INT, CONVERT(CHAR(8), C.Fecha, 112)),&#xA;    C.Fecha,&#xA;    DAY(C.Fecha),&#xA;    MONTH(C.Fecha),&#xA;    CASE MONTH(C.Fecha)&#xA;        WHEN 1 THEN N'Enero'&#xA;        WHEN 2 THEN N'Febrero'&#xA;        WHEN 3 THEN N'Marzo'&#xA;        WHEN 4 THEN N'Abril'&#xA;        WHEN 5 THEN N'Mayo'&#xA;        WHEN 6 THEN N'Junio'&#xA;        WHEN 7 THEN N'Julio'&#xA;        WHEN 8 THEN N'Agosto'&#xA;        WHEN 9 THEN N'Septiembre'&#xA;        WHEN 10 THEN N'Octubre'&#xA;        WHEN 11 THEN N'Noviembre'&#xA;        WHEN 12 THEN N'Diciembre'&#xA;    END,&#xA;    DATEPART(QUARTER, C.Fecha),&#xA;    YEAR(C.Fecha),&#xA;    (DATEDIFF(DAY, CONVERT(DATE, '19000101'), C.Fecha) % 7) + 1,&#xA;    CASE&#xA;        ((DATEDIFF(DAY, CONVERT(DATE, '19000101'), C.Fecha) % 7) + 1)&#xA;        WHEN 1 THEN N'Lunes'&#xA;        WHEN 2 THEN N'Martes'&#xA;        WHEN 3 THEN N'Miércoles'&#xA;        WHEN 4 THEN N'Jueves'&#xA;        WHEN 5 THEN N'Viernes'&#xA;        WHEN 6 THEN N'Sábado'&#xA;        WHEN 7 THEN N'Domingo'&#xA;    END,&#xA;    CASE&#xA;        WHEN ((DATEDIFF(DAY, CONVERT(DATE, '19000101'), C.Fecha) % 7) + 1)&#xA;             IN (6, 7)&#xA;        THEN 1&#xA;        ELSE 0&#xA;    END&#xA;FROM Calendario AS C&#xA;WHERE NOT EXISTS&#xA;(&#xA;    SELECT 1&#xA;    FROM dbo.DimFecha AS D&#xA;    WHERE D.Fecha = C.Fecha&#xA;)&#xA;OPTION (MAXRECURSION 0);&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Cargar DimFecha"
+          TopLeft="232,74" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

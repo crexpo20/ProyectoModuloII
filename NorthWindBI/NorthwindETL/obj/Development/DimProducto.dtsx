@@ -1,0 +1,714 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/23/2026 4:16:54 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-3ERUFNK"
+  DTS:CreatorName="DESKTOP-3ERUFNK\Ronaldo"
+  DTS:DTSID="{099BB877-1DF0-45F2-9BFD-CED9647072C7}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="16394"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{8967ABD7-A116-4C4C-B655-DCD9DD25F95E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CN_NorthWind0LTP]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E4DA2093-CF17-4F7E-A3BD-B705B56CA7FE}"
+      DTS:ObjectName="CN_NorthWind0LTP">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-3ERUFNK;Initial Catalog=NorthWind0LTP;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{E4DA2093-CF17-4F7E-A3BD-B705B56CA7FE}DESKTOP-3ERUFNK.NorthWind0LTP;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CN_NorthWindDW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7A557290-CDC4-4FC3-B04E-D3C96D064D92}"
+      DTS:ObjectName="CN_NorthWindDW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-3ERUFNK;Initial Catalog=NorthWindDW;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{7A557290-CDC4-4FC3-B04E-D3C96D064D92}DESKTOP-3ERUFNK.NorthWindDW;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT_Cargar_DimProducto"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{3B48A440-0A5F-4006-A2FF-BD02CF2A2E57}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_Cargar_DimProducto"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_Cargar_DimProducto\DST_DimProducto"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="DST_DimProducto"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[DimProducto]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CN_NorthWindDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[CN_NorthWindDW]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].Columns[ProductID]"
+                      cachedDataType="i4"
+                      cachedName="ProductID"
+                      externalMetadataColumnId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[ProductID]"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].Columns[ProductID]" />
+                    <inputColumn
+                      refId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].Columns[Producto]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="Producto"
+                      externalMetadataColumnId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Producto]"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].Columns[Producto]" />
+                    <inputColumn
+                      refId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].Columns[Categoria]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="Categoria"
+                      externalMetadataColumnId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Categoria]"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].Columns[Categoria]" />
+                    <inputColumn
+                      refId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].Columns[DescripcionCategoria]"
+                      cachedDataType="nText"
+                      cachedName="DescripcionCategoria"
+                      externalMetadataColumnId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[DescripcionCategoria]"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].Columns[DescripcionCategoria]" />
+                    <inputColumn
+                      refId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].Columns[Proveedor]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="Proveedor"
+                      externalMetadataColumnId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Proveedor]"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].Columns[Proveedor]" />
+                    <inputColumn
+                      refId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].Columns[CantidadPorUnidad]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="CantidadPorUnidad"
+                      externalMetadataColumnId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[CantidadPorUnidad]"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].Columns[CantidadPorUnidad]" />
+                    <inputColumn
+                      refId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].Columns[PrecioActual]"
+                      cachedDataType="numeric"
+                      cachedName="PrecioActual"
+                      cachedPrecision="19"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[PrecioActual]"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].Columns[PrecioActual]" />
+                    <inputColumn
+                      refId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].Columns[UnidadesEnStock]"
+                      cachedDataType="i2"
+                      cachedName="UnidadesEnStock"
+                      externalMetadataColumnId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[UnidadesEnStock]"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].Columns[UnidadesEnStock]" />
+                    <inputColumn
+                      refId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].Columns[UnidadesEnPedido]"
+                      cachedDataType="i2"
+                      cachedName="UnidadesEnPedido"
+                      externalMetadataColumnId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[UnidadesEnPedido]"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].Columns[UnidadesEnPedido]" />
+                    <inputColumn
+                      refId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].Columns[NivelReposicion]"
+                      cachedDataType="i2"
+                      cachedName="NivelReposicion"
+                      externalMetadataColumnId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[NivelReposicion]"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].Columns[NivelReposicion]" />
+                    <inputColumn
+                      refId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].Columns[Descontinuado]"
+                      cachedDataType="bool"
+                      cachedName="Descontinuado"
+                      externalMetadataColumnId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Descontinuado]"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].Columns[Descontinuado]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[ProductoKey]"
+                      dataType="i4"
+                      name="ProductoKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[ProductID]"
+                      dataType="i4"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Producto]"
+                      dataType="wstr"
+                      length="40"
+                      name="Producto" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Categoria]"
+                      dataType="wstr"
+                      length="15"
+                      name="Categoria" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[DescripcionCategoria]"
+                      dataType="nText"
+                      name="DescripcionCategoria" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Proveedor]"
+                      dataType="wstr"
+                      length="40"
+                      name="Proveedor" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[CantidadPorUnidad]"
+                      dataType="wstr"
+                      length="20"
+                      name="CantidadPorUnidad" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[PrecioActual]"
+                      dataType="numeric"
+                      name="PrecioActual"
+                      precision="19"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[UnidadesEnStock]"
+                      dataType="i2"
+                      name="UnidadesEnStock" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[UnidadesEnPedido]"
+                      dataType="i2"
+                      name="UnidadesEnPedido" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[NivelReposicion]"
+                      dataType="i2"
+                      name="NivelReposicion" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB].ExternalColumns[Descontinuado]"
+                      dataType="bool"
+                      name="Descontinuado" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="SRC_Productos_Categorias_Proveedores"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+    p.ProductID,
+    p.ProductName AS Producto,
+    c.CategoryName AS Categoria,
+    CAST(c.Description AS NVARCHAR(MAX))
+        AS DescripcionCategoria,
+    s.CompanyName AS Proveedor,
+    p.QuantityPerUnit AS CantidadPorUnidad,
+    CAST(p.UnitPrice AS DECIMAL(19,4))
+        AS PrecioActual,
+    p.UnitsInStock AS UnidadesEnStock,
+    p.UnitsOnOrder AS UnidadesEnPedido,
+    p.ReorderLevel AS NivelReposicion,
+    p.Discontinued AS Descontinuado
+FROM dbo.Products AS p
+LEFT JOIN dbo.Categories AS c
+    ON p.CategoryID = c.CategoryID
+LEFT JOIN dbo.Suppliers AS s
+    ON p.SupplierID = s.SupplierID;</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CN_NorthWind0LTP]"
+                  connectionManagerRefId="Package.ConnectionManagers[CN_NorthWind0LTP]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].Columns[ProductID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].ExternalColumns[ProductID]"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].Columns[ProductID]"
+                      name="ProductID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].Columns[Producto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].ExternalColumns[Producto]"
+                      length="40"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].Columns[Producto]"
+                      name="Producto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].Columns[Categoria]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].ExternalColumns[Categoria]"
+                      length="15"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].Columns[Categoria]"
+                      name="Categoria"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].Columns[DescripcionCategoria]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].ExternalColumns[DescripcionCategoria]"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].Columns[DescripcionCategoria]"
+                      name="DescripcionCategoria"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].Columns[Proveedor]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].ExternalColumns[Proveedor]"
+                      length="40"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].Columns[Proveedor]"
+                      name="Proveedor"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].Columns[CantidadPorUnidad]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].ExternalColumns[CantidadPorUnidad]"
+                      length="20"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].Columns[CantidadPorUnidad]"
+                      name="CantidadPorUnidad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].Columns[PrecioActual]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].ExternalColumns[PrecioActual]"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].Columns[PrecioActual]"
+                      name="PrecioActual"
+                      precision="19"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].Columns[UnidadesEnStock]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].ExternalColumns[UnidadesEnStock]"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].Columns[UnidadesEnStock]"
+                      name="UnidadesEnStock"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].Columns[UnidadesEnPedido]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].ExternalColumns[UnidadesEnPedido]"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].Columns[UnidadesEnPedido]"
+                      name="UnidadesEnPedido"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].Columns[NivelReposicion]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].ExternalColumns[NivelReposicion]"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].Columns[NivelReposicion]"
+                      name="NivelReposicion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].Columns[Descontinuado]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].ExternalColumns[Descontinuado]"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].Columns[Descontinuado]"
+                      name="Descontinuado"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].ExternalColumns[ProductID]"
+                      dataType="i4"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].ExternalColumns[Producto]"
+                      dataType="wstr"
+                      length="40"
+                      name="Producto" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].ExternalColumns[Categoria]"
+                      dataType="wstr"
+                      length="15"
+                      name="Categoria" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].ExternalColumns[DescripcionCategoria]"
+                      dataType="nText"
+                      name="DescripcionCategoria" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].ExternalColumns[Proveedor]"
+                      dataType="wstr"
+                      length="40"
+                      name="Proveedor" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].ExternalColumns[CantidadPorUnidad]"
+                      dataType="wstr"
+                      length="20"
+                      name="CantidadPorUnidad" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].ExternalColumns[PrecioActual]"
+                      dataType="numeric"
+                      name="PrecioActual"
+                      precision="19"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].ExternalColumns[UnidadesEnStock]"
+                      dataType="i2"
+                      name="UnidadesEnStock" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].ExternalColumns[UnidadesEnPedido]"
+                      dataType="i2"
+                      name="UnidadesEnPedido" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].ExternalColumns[NivelReposicion]"
+                      dataType="i2"
+                      name="NivelReposicion" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB].ExternalColumns[Descontinuado]"
+                      dataType="bool"
+                      name="Descontinuado" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de error de origen de OLE DB].Columns[ProductID]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de error de origen de OLE DB].Columns[ProductID]"
+                      name="ProductID" />
+                    <outputColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de error de origen de OLE DB].Columns[Producto]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de error de origen de OLE DB].Columns[Producto]"
+                      name="Producto" />
+                    <outputColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de error de origen de OLE DB].Columns[Categoria]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de error de origen de OLE DB].Columns[Categoria]"
+                      name="Categoria" />
+                    <outputColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de error de origen de OLE DB].Columns[DescripcionCategoria]"
+                      dataType="nText"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de error de origen de OLE DB].Columns[DescripcionCategoria]"
+                      name="DescripcionCategoria" />
+                    <outputColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de error de origen de OLE DB].Columns[Proveedor]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de error de origen de OLE DB].Columns[Proveedor]"
+                      name="Proveedor" />
+                    <outputColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de error de origen de OLE DB].Columns[CantidadPorUnidad]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de error de origen de OLE DB].Columns[CantidadPorUnidad]"
+                      name="CantidadPorUnidad" />
+                    <outputColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de error de origen de OLE DB].Columns[PrecioActual]"
+                      dataType="numeric"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de error de origen de OLE DB].Columns[PrecioActual]"
+                      name="PrecioActual"
+                      precision="19"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de error de origen de OLE DB].Columns[UnidadesEnStock]"
+                      dataType="i2"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de error de origen de OLE DB].Columns[UnidadesEnStock]"
+                      name="UnidadesEnStock" />
+                    <outputColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de error de origen de OLE DB].Columns[UnidadesEnPedido]"
+                      dataType="i2"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de error de origen de OLE DB].Columns[UnidadesEnPedido]"
+                      name="UnidadesEnPedido" />
+                    <outputColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de error de origen de OLE DB].Columns[NivelReposicion]"
+                      dataType="i2"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de error de origen de OLE DB].Columns[NivelReposicion]"
+                      name="NivelReposicion" />
+                    <outputColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de error de origen de OLE DB].Columns[Descontinuado]"
+                      dataType="bool"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de error de origen de OLE DB].Columns[Descontinuado]"
+                      name="Descontinuado" />
+                    <outputColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_Cargar_DimProducto.Paths[Salida de origen de OLE DB]"
+              endId="Package\DFT_Cargar_DimProducto\DST_DimProducto.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de OLE DB"
+              startId="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="201,42"
+          Id="Package\DFT_Cargar_DimProducto"
+          TopLeft="240,65" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT_Cargar_DimProducto">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="269,42"
+          Id="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores"
+          TopLeft="270,63" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\DFT_Cargar_DimProducto\DST_DimProducto"
+          TopLeft="312,180" />
+        <EdgeLayout
+          Id="Package\DFT_Cargar_DimProducto.Paths[Salida de origen de OLE DB]"
+          TopLeft="404.5,105">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-10,75"
+              Start="0,0"
+              End="-10,67.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.5"
+                    Point2="0,37.5"
+                    Point3="-4,37.5" />
+                  <mssgle:LineSegment
+                    End="-6,37.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6,37.5"
+                    Point2="-10,37.5"
+                    Point3="-10,41.5" />
+                  <mssgle:LineSegment
+                    End="-10,67.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Cargar_DimProducto\SRC_Productos_Categorias_Proveedores">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Cargar_DimProducto\DST_DimProducto">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -58,14 +58,17 @@
     <Folder Include="Properties" />
     <Folder Include="Schema" />
     <Folder Include="Schema\Tables" />
-    <Folder Include="Schema\Tables\dbo" />
+    <Folder Include="Scripts" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Schema\Tables\dbo\Dim_Cliente.sql" />
-    <Build Include="Schema\Tables\dbo\Dim_Empleado.sql" />
-    <Build Include="Schema\Tables\dbo\Dim_Producto.sql" />
-    <Build Include="Schema\Tables\dbo\Dim_Tiempo.sql" />
-    <Build Include="Schema\Tables\dbo\Dim_Transportista.sql" />
-    <Build Include="Schema\Tables\dbo\Fact_Ventas.sql" />
+    <Build Include="Scripts\ConsultasVerificacion.sql" />
+    <Build Include="Schema\Tables\FactVentas.sql" />
+    <Build Include="Schema\Tables\DimTransportista.sql" />
+    <Build Include="Schema\Tables\DimProducto.sql" />
+    <Build Include="Schema\Tables\DimFecha.sql" />
+    <Build Include="Schema\Tables\DimEmpleado.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Schema\Tables\DimCliente.sql" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,41 @@
+﻿** Aspectos destacados
+     Tablas que se volverán a crear con los datos migrados
+       Ninguno
+     Índices clúster que se van a quitar
+       Ninguno
+     Índices clúster que se van a crear
+       Ninguno
+     Posibles incidencias de datos
+       Ninguno
+
+** Acciones del usuario
+     Crear
+       [dbo].[DimCliente] (Tabla)
+       [dbo].[DimEmpleado] (Tabla)
+       [dbo].[DimFecha] (Tabla)
+       [dbo].[DimProducto] (Tabla)
+       [dbo].[DimTransportista] (Tabla)
+       [dbo].[FactVentas] (Tabla)
+       [dbo].[FactVentas].[IX_FactVentas_FechaPedido] (Índice)
+       [dbo].[FactVentas].[IX_FactVentas_Cliente] (Índice)
+       [dbo].[FactVentas].[IX_FactVentas_Producto] (Índice)
+       [dbo].[FactVentas].[IX_FactVentas_Empleado] (Índice)
+       [dbo].[FK_FactVentas_FechaPedido] (Clave externa)
+       [dbo].[FK_FactVentas_FechaRequerida] (Clave externa)
+       [dbo].[FK_FactVentas_FechaEnvio] (Clave externa)
+       [dbo].[FK_FactVentas_Cliente] (Clave externa)
+       [dbo].[FK_FactVentas_Producto] (Clave externa)
+       [dbo].[FK_FactVentas_Empleado] (Clave externa)
+       [dbo].[FK_FactVentas_Transportista] (Clave externa)
+       [dbo].[CK_DimFecha_Dia] (Restricción CHECK)
+       [dbo].[CK_DimFecha_Mes] (Restricción CHECK)
+       [dbo].[CK_DimFecha_Trimestre] (Restricción CHECK)
+       [dbo].[CK_FactVentas_Cantidad] (Restricción CHECK)
+       [dbo].[CK_FactVentas_Precio] (Restricción CHECK)
+       [dbo].[CK_FactVentas_Descuento] (Restricción CHECK)
+       [dbo].[CK_FactVentas_Importes] (Restricción CHECK)
+
+** Acciones de compatibilidad
+
+Las bases de datos del proyecto y de destino tienen una configuración de intercalación diferente. Se pueden producir errores de implementación.
+

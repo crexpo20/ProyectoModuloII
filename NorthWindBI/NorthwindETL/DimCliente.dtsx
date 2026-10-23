@@ -1,0 +1,84 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/23/2026 4:05:12 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-3ERUFNK"
+  DTS:CreatorName="DESKTOP-3ERUFNK\Ronaldo"
+  DTS:DTSID="{BE7CB194-8B08-4DEC-8224-38B0197401D2}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="16394"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{CEDBF196-3AAC-4A2A-921C-759EB7383C91}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CN_NorthWind0LTP]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0F084791-03EB-4DD1-95D9-15F7B692F1B4}"
+      DTS:ObjectName="CN_NorthWind0LTP">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-3ERUFNK;Initial Catalog=NorthWind0LTP;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{0F084791-03EB-4DD1-95D9-15F7B692F1B4}DESKTOP-3ERUFNK.NorthWind0LTP;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CN_NorthWindDW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D8438BAD-6FD3-4366-8B32-282F1EE2C702}"
+      DTS:ObjectName="CN_NorthWindDW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-3ERUFNK;Initial Catalog=NorthWindDW;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{D8438BAD-6FD3-4366-8B32-282F1EE2C702}DESKTOP-3ERUFNK.NorthWindDW;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Cargar DimCliente"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{EDBACF54-4880-4616-80B8-576A9F8A84E0}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Cargar DimCliente"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D8438BAD-6FD3-4366-8B32-282F1EE2C702}"
+          SQLTask:SqlStatementSource="&#xA;USE NorthwindDW;&#xA;&#xA;SET NOCOUNT ON;&#xA;&#xA;-- Actualizar los clientes que ya existen.&#xA;UPDATE D&#xA;SET&#xA;    D.Empresa = S.CompanyName,&#xA;    D.Contacto = S.ContactName,&#xA;    D.CargoContacto = S.ContactTitle,&#xA;    D.Ciudad = S.City,&#xA;    D.Region = S.Region,&#xA;    D.CodigoPostal = S.PostalCode,&#xA;    D.Pais = S.Country&#xA;FROM dbo.DimCliente AS D&#xA;INNER JOIN NorthWindF.dbo.Customers AS S&#xA;    ON D.CustomerID = S.CustomerID;&#xA;&#xA;-- Insertar solamente los clientes nuevos.&#xA;INSERT INTO dbo.DimCliente&#xA;(&#xA;    CustomerID,&#xA;    Empresa,&#xA;    Contacto,&#xA;    CargoContacto,&#xA;    Ciudad,&#xA;    Region,&#xA;    CodigoPostal,&#xA;    Pais&#xA;)&#xA;SELECT&#xA;    S.CustomerID,&#xA;    S.CompanyName,&#xA;    S.ContactName,&#xA;    S.ContactTitle,&#xA;    S.City,&#xA;    S.Region,&#xA;    S.PostalCode,&#xA;    S.Country&#xA;FROM NorthWindF.dbo.Customers AS S&#xA;WHERE NOT EXISTS&#xA;(&#xA;    SELECT 1&#xA;    FROM dbo.DimCliente AS D&#xA;    WHERE D.CustomerID = S.CustomerID&#xA;);&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Cargar DimCliente"
+          TopLeft="245,78" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
