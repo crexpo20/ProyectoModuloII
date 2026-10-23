@@ -1,0 +1,3 @@
+CREATE SCHEMA [dw];
+GO
+CREATE SCHEMA [etl];

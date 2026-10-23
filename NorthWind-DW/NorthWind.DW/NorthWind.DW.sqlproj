@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.Build.Sql/1.0.0">
+  <PropertyGroup>
+    <Name>NorthWind.DW</Name>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
+    <ModelCollation>1033, CI</ModelCollation>
+    <TargetFrameworks>net8.0</TargetFrameworks>
+    <!-- Los procedimientos ETL leen la BD origen [NorthWind] (referencia entre bases de datos) -->
+    <SuppressTSqlWarnings>71502</SuppressTSqlWarnings>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <ProjectGuid>{e087be12-27a6-41f5-9900-8cb287e7f38b}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Schemas" />
+    <Folder Include="Tables" />
+    <Folder Include="StoredProcedures" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Schemas\Schemas.sql" />
+    <Build Include="Tables\DimCustomer.sql" />
+    <Build Include="Tables\DimDate.sql" />
+    <Build Include="Tables\DimEmployee.sql" />
+    <Build Include="Tables\DimProduct.sql" />
+    <Build Include="Tables\DimShipLocation.sql" />
+    <Build Include="Tables\DimShipper.sql" />
+    <Build Include="Tables\FactSales.sql" />
+    <Build Include="StoredProcedures\etl_usp_Load_All.sql" />
+    <Build Include="StoredProcedures\etl_usp_Load_DimCustomer.sql" />
+    <Build Include="StoredProcedures\etl_usp_Load_DimDate.sql" />
+    <Build Include="StoredProcedures\etl_usp_Load_DimEmployee.sql" />
+    <Build Include="StoredProcedures\etl_usp_Load_DimProduct.sql" />
+    <Build Include="StoredProcedures\etl_usp_Load_DimShipLocation.sql" />
+    <Build Include="StoredProcedures\etl_usp_Load_DimShipper.sql" />
+    <Build Include="StoredProcedures\etl_usp_Load_FactSales.sql" />
+    <Build Include="StoredProcedures\etl_usp_Seed_UnknownMembers.sql" />
+    <Build Include="StoredProcedures\etl_usp_Validate.sql" />
+  </ItemGroup>
+</Project>

@@ -1,5 +1,5 @@
 <Solution>
-  <Project Path="NorthWindBI/NorthWindBI.sqlproj">
+  <Project Path="NorthWindBI/NorthWindBI.sqlproj" Id="c6aedc1c-1f17-4f49-8df4-530335cc03aa">
     <Build />
     <Deploy />
   </Project>
