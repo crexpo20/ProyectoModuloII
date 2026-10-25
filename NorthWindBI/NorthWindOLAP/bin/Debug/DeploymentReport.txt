@@ -1,0 +1,35 @@
+﻿** Aspectos destacados
+     Tablas que se volverán a crear con los datos migrados
+       Ninguno
+     Índices clúster que se van a quitar
+       Ninguno
+     Índices clúster que se van a crear
+       Ninguno
+     Posibles incidencias de datos
+       Ninguno
+
+** Acciones del usuario
+     Crear
+       [staging] (Esquema)
+       [dbo].[Customer] (Tabla)
+       [dbo].[DimCustomer] (Tabla)
+       [dbo].[DimDate] (Tabla)
+       [dbo].[DimEmployee] (Tabla)
+       [dbo].[DimProducts] (Tabla)
+       [dbo].[DimShipper] (Tabla)
+       [dbo].[employee] (Tabla)
+       [dbo].[FactSales] (Tabla)
+       [dbo].[PackageConfig] (Tabla)
+       [dbo].[Product] (Tabla)
+       [dbo].[sales] (Tabla)
+       [dbo].[shippper] (Tabla)
+       [dbo].[DW_LoadDimDateFromSales] (Procedimiento)
+       [dbo].[DW_MergeDimCustomer] (Procedimiento)
+       [dbo].[DW_MergeDimEmployee] (Procedimiento)
+       [dbo].[DW_MergeDimProducts] (Procedimiento)
+       [dbo].[DW_MergeDimShipper] (Procedimiento)
+       [dbo].[DW_MergeFactSales] (Procedimiento)
+       [dbo].[GetLastPackageRowVersion] (Procedimiento)
+       [dbo].[UpdateLastPackageRowVersion] (Procedimiento)
+
+** Acciones de compatibilidad

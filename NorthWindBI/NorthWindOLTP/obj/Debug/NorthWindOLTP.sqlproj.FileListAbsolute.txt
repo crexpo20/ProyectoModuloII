@@ -1,0 +1,6 @@
+C:\Users\usuario\Documents\GitHub\ProyectoModuloII\NorthWindBI\NorthWindOLTP\bin\Debug\NorthWindOLTP.dacpac
+C:\Users\usuario\Documents\GitHub\ProyectoModuloII\NorthWindBI\NorthWindOLTP\bin\Debug\NorthWindOLTP.dll
+C:\Users\usuario\Documents\GitHub\ProyectoModuloII\NorthWindBI\NorthWindOLTP\bin\Debug\NorthWindOLTP.pdb
+C:\Users\usuario\Documents\GitHub\ProyectoModuloII\NorthWindBI\NorthWindOLTP\obj\Debug\NorthWindOLTP.sqlproj.AssemblyReference.cache
+C:\Users\usuario\Documents\GitHub\ProyectoModuloII\NorthWindBI\NorthWindOLTP\obj\Debug\NorthWindOLTP.dll
+C:\Users\usuario\Documents\GitHub\ProyectoModuloII\NorthWindBI\NorthWindOLTP\obj\Debug\NorthWindOLTP.pdb

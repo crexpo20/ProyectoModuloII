@@ -1,0 +1,33 @@
+﻿** Aspectos destacados
+     Tablas que se volverán a crear con los datos migrados
+       Ninguno
+     Índices clúster que se van a quitar
+       Ninguno
+     Índices clúster que se van a crear
+       Ninguno
+     Posibles incidencias de datos
+       Ninguno
+
+** Acciones del usuario
+     Crear
+       [dbo].[Categories] (Tabla)
+       [dbo].[CustomerCustomerDemo] (Tabla)
+       [dbo].[CustomerDemographics] (Tabla)
+       [dbo].[Customers] (Tabla)
+       [dbo].[Employees] (Tabla)
+       [dbo].[Employeeterritories] (Tabla)
+       [dbo].[OrderDetails] (Tabla)
+       [dbo].[Orders] (Tabla)
+       [dbo].[Products] (Tabla)
+       [dbo].[Region] (Tabla)
+       [dbo].[shippers] (Tabla)
+       [dbo].[Suppliers] (Tabla)
+       [dbo].[Territories] (Tabla)
+       [dbo].[GetCustomerChangesByRowVersion] (Procedimiento)
+       [dbo].[GetDatabaseRowVersion] (Procedimiento)
+       [dbo].[GetEmployeeChangesByRowVersion] (Procedimiento)
+       [dbo].[GetProductsChangesByRowVersion] (Procedimiento)
+       [dbo].[GetSalesChangesByRowVersion] (Procedimiento)
+       [dbo].[GetShipperChangesByRowVersion] (Procedimiento)
+
+** Acciones de compatibilidad
